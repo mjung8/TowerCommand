@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     private float maxWidth;
     private float screenHeight = 10f;
     public float damageTaken;
+    public float score;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,14 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         Debug.Log("damage taken: " + damageTaken);
-        if (damageTaken > 0 && healthBarSize > 0)
+        if (damageTaken != 0 && healthBarSize > 0)
         {
             healthBarSize -= damageTaken / 7.5f;
             if (healthBarSize < 0)
                 healthBarSize = 0;
+
+            if (healthBarSize > 1f)
+                healthBarSize = 1f;
 
             Debug.LogWarning("health: " + healthBarSize);
 

@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62491696}
   - component: {fileID: 62491695}
+  - component: {fileID: 62491697}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -252,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f1fdce73945c18f44aa332a811ce1d56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -278,6 +279,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62491697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62491694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7965b1a1367ac0a45bc407cc1675c338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4496768035387386885, guid: 755315767ab1c68468107612e1df8730, type: 3}
+  speed: 500
 --- !u!1 &619950639
 GameObject:
   m_ObjectHideFlags: 0
