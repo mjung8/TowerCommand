@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOnContact : MonoBehaviour
+public class Score : MonoBehaviour
 {
+    public int scoreValue = 1;
+
     private GameController gc;
 
     // Start is called before the first frame update
@@ -14,11 +16,12 @@ public class DestroyOnContact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Bullet")
         {
             Destroy(collision.gameObject);
-            gc.damageTaken += 0.5f;
-            Debug.LogWarning("damaged");
+            gc.score += 100 * scoreValue;
+            gc.damageTaken -= 0.5f * scoreValue;
+            Debug.LogWarning("enemy killed");
         }
     }
 }
