@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public HealthBar healthBar;
     private float healthBarSize;
-    private float initialDuration = 30f;
     private float maxWidth;
     private float screenHeight = 10f;
     public float damageTaken;

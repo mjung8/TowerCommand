@@ -291,8 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7965b1a1367ac0a45bc407cc1675c338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4496768035387386885, guid: 755315767ab1c68468107612e1df8730, type: 3}
-  speed: 500
+  speed: 100
+  currentWeapon: {fileID: 11400000, guid: c1baeab7b6f04fb47b77c80b8c51b30d, type: 2}
 --- !u!1 &516349830
 GameObject:
   m_ObjectHideFlags: 0
