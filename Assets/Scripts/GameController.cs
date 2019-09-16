@@ -12,20 +12,16 @@ public class GameController : MonoBehaviour
     public GameObject startButton;
     public GameObject restartButton;
     public Text scoreText;
-    public HealthBar healthBar;
-    private float healthBarSize;
-    private float initialDuration = 30f;
     private float maxWidth;
     private float screenHeight = 10f;
-    public float damageTaken;
     public float score;
+
+    public TowerController tc;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
-        healthBarSize = 1f;
-        healthBar.SetSize(healthBarSize);
 
         Vector3 upperCorner = new Vector3(Screen.width, Screen.height, 0.0f);
         Vector3 targetWidth = Camera.main.ScreenToWorldPoint(upperCorner);
@@ -54,36 +50,14 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("damage taken: " + damageTaken);
-        if (damageTaken != 0 && healthBarSize > 0)
-        {
-            healthBarSize -= damageTaken / 7.5f;
-            if (healthBarSize < 0)
-                healthBarSize = 0;
-
-            if (healthBarSize > 1f)
-                healthBarSize = 1f;
-
-            Debug.LogWarning("health: " + healthBarSize);
-
-            healthBar.SetSize(healthBarSize);
-            damageTaken = 0;
-
-            UpdateText();
-        }
-
-        if (healthBarSize <= 0)
-        {
-            StopGame();
-        }
-
+        UpdateText();
     }
 
     IEnumerator Enemy()
     {
         yield return new WaitForSeconds(0.5f);
 
-        while (healthBarSize > 0)
+        while (tc.healthSystem.GetHealthPercent() > 0)
         {
             GameObject enemy = enemies[0];
 

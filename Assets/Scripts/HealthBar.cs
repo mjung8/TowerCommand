@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    float xScaleMultiplier = 7.5f;
-    private Transform bar;
+    public HealthSystem healthSystem;
 
-    // Start is called before the first frame update
-    void Awake()
+    public void Setup(HealthSystem healthSystem)
     {
-        bar = transform.Find("Bar");
+        this.healthSystem = healthSystem;
+
+        healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
     }
 
-    public void SetSize(float sizeNormalized)
+    private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e)
     {
-        bar.localScale = new Vector3(sizeNormalized * xScaleMultiplier, 1f);
+        transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
+    }
+
+    private void Update()
+    {
+        //transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
     }
 
 }
