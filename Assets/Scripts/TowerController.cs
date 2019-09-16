@@ -15,11 +15,26 @@ public class TowerController : MonoBehaviour
     private int magazine;
     private bool reloading = false;
 
+    public HealthSystem healthSystem;
+    public Transform pfHealthBar;
+
     // Start is called before the first frame update
     void Start()
     {
         reloadTimer = currentWeapon.reloadSpeed;
         magazine = currentWeapon.magazineCapacity;
+
+        healthSystem = new HealthSystem(100);
+
+        Transform healthBarTransform = Instantiate(pfHealthBar, new Vector3(-1f, -8.5f), Quaternion.identity);
+        HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
+        healthBar.Setup(healthSystem);
+
+        Debug.Log("Health: " + healthSystem.GetHealthPercent());
+        healthSystem.Damage(10);
+        Debug.Log("Health: " + healthSystem.GetHealthPercent());
+        healthSystem.Heal(10);
+        Debug.Log("Health: " + healthSystem.GetHealthPercent());
     }
 
     // Update is called once per frame

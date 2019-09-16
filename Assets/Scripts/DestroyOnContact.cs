@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DestroyOnContact : MonoBehaviour
 {
-    private GameController gc;
+    private TowerController tc;
 
     // Start is called before the first frame update
     void Start()
     {
-        gc = GameObject.FindObjectOfType<GameController>();
+        tc = GameObject.FindObjectOfType<TowerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +17,7 @@ public class DestroyOnContact : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Destroy(collision.gameObject);
-            gc.damageTaken += 0.5f;
+            tc.healthSystem.Damage(10);
             Debug.LogWarning("damaged");
         }
     }
