@@ -215,7 +215,7 @@ MonoBehaviour:
   speed: 100
   pfHealthBar: {fileID: 2063895056983626923, guid: 166e0057f3dc30241a22741219a9c45a,
     type: 3}
-  weaponSystem: {fileID: 0}
+  gc: {fileID: 2039147153}
 --- !u!1 &321347326
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &321347327
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1440796994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14943041, g: 0.22779351, b: 0.4339623, a: 0.7137255}
+  m_Color: {r: 0.14943041, g: 0.22779351, b: 0.4339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1528,10 +1528,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 3675447305638226741, guid: e83cf3319f3485e4691e9534152192c6, type: 3}
+  availableWeapons:
+  - {fileID: 11400000, guid: c1baeab7b6f04fb47b77c80b8c51b30d, type: 2}
   canvasBackground: {fileID: 1440796993}
   startButton: {fileID: 2082679332}
   restartButton: {fileID: 516349830}
   scoreTMP: {fileID: 1225561127}
+  UIplayerInfo: {fileID: 321347326}
   tc: {fileID: 62491697}
 --- !u!4 &2039147154
 Transform:

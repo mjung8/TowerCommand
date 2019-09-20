@@ -9,10 +9,13 @@ public class GameController : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] enemies;
+    [SerializeField]
+    public List<ScriptableWeapon> availableWeapons;
     public GameObject canvasBackground;
     public GameObject startButton;
     public GameObject restartButton;
     public TextMeshProUGUI scoreTMP;
+    public GameObject UIplayerInfo;
     private float maxWidth;
     private float screenHeight = 10f;
 
@@ -33,6 +36,7 @@ public class GameController : MonoBehaviour
     {
         canvasBackground.SetActive(false);
         startButton.SetActive(false);
+        UIplayerInfo.SetActive(true);
         StartCoroutine(Enemy());
     }
 
@@ -41,6 +45,7 @@ public class GameController : MonoBehaviour
         StopCoroutine(Enemy());
         canvasBackground.SetActive(true);
         restartButton.SetActive(true);
+        UIplayerInfo.SetActive(false);
     }
 
     public void RestartGame()

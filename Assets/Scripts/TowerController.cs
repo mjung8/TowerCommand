@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class TowerController : MonoBehaviour
 {
@@ -12,23 +13,22 @@ public class TowerController : MonoBehaviour
     public Transform pfHealthBar;
 
     public WeaponSystem weaponSystem;
+    public GameController gc;
 
     // Start is called before the first frame update
     void Awake()
     {
         healthSystem = new HealthSystem(100);
-
-        string[] results;
-        results = AssetDatabase.FindAssets("BasicGun");
-
-        foreach (string guid in results)
-        {
-            weaponSystem = new WeaponSystem(AssetDatabase.LoadAssetAtPath<ScriptableWeapon>(AssetDatabase.GUIDToAssetPath(guid)));
-        }
-
         Transform healthBarTransform = Instantiate(pfHealthBar, new Vector3(-1f, -8.5f), Quaternion.identity);
         HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
         healthBar.Setup(healthSystem);
+    }
+
+    private void Start()
+    {
+        ScriptableWeapon temp = gc.availableWeapons.FirstOrDefault(x => x.weaponName == "Basic Gun");
+        Debug.Log(temp.name);
+        weaponSystem = new WeaponSystem(temp);
     }
 
     // Update is called once per frame
@@ -56,5 +56,5 @@ public class TowerController : MonoBehaviour
         weaponSystem.CheckReload(Time.deltaTime);
     }
 
-    
+
 }
