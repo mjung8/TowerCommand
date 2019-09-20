@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
             GameController.score += 100 * scoreValue;
             //gc.damageTaken -= 0.5f * scoreValue;
             tc.healthSystem.Heal(5);
-            Debug.LogWarning("enemy killed");
+            //Debug.LogWarning("enemy killed");
         }
     }
 }
