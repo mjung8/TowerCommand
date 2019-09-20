@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
         healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
     }
 
-    private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e)
+    private void HealthSystem_OnHealthChanged()
     {
         transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
     }
@@ -23,4 +23,8 @@ public class HealthBar : MonoBehaviour
         //transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
     }
 
+    private void OnDestroy()
+    {
+        healthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
+    }
 }

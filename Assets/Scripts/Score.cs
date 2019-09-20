@@ -7,12 +7,10 @@ public class Score : MonoBehaviour
     public int scoreValue = 1;
 
     private TowerController tc;
-    private GameController gc;
 
     // Start is called before the first frame update
     void Start()
     {
-        gc = GameObject.FindObjectOfType<GameController>();
         tc = GameObject.FindObjectOfType<TowerController>();
     }
 
@@ -21,10 +19,10 @@ public class Score : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             Destroy(collision.gameObject);
-            gc.score += 100 * scoreValue;
+            GameController.score += 100 * scoreValue;
             //gc.damageTaken -= 0.5f * scoreValue;
             tc.healthSystem.Heal(5);
-            Debug.LogWarning("enemy killed");
+            //Debug.LogWarning("enemy killed");
         }
     }
 }

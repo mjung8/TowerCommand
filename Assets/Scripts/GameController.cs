@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,18 +12,17 @@ public class GameController : MonoBehaviour
     public GameObject canvasBackground;
     public GameObject startButton;
     public GameObject restartButton;
-    public Text scoreText;
+    public TextMeshProUGUI scoreTMP;
     private float maxWidth;
     private float screenHeight = 10f;
-    public float score;
+
+    public static float score = 0;
 
     public TowerController tc;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
-
         Vector3 upperCorner = new Vector3(Screen.width, Screen.height, 0.0f);
         Vector3 targetWidth = Camera.main.ScreenToWorldPoint(upperCorner);
         maxWidth = targetWidth.x;
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
 
     void UpdateText()
     {
-        scoreText.text = "Score: " + score;
+        scoreTMP.text = "Score: " + score;
     }
 
 }

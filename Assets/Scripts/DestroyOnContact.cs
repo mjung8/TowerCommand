@@ -18,7 +18,7 @@ public class DestroyOnContact : MonoBehaviour
         {
             Destroy(collision.gameObject);
             tc.healthSystem.Damage(10);
-            Debug.LogWarning("damaged");
+            //Debug.LogWarning("damaged");
         }
     }
 }
