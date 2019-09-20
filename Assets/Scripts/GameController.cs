@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] enemies;
+    [SerializeField]
+    public List<ScriptableWeapon> availableWeapons;
     public GameObject canvasBackground;
     public GameObject startButton;
     public GameObject restartButton;

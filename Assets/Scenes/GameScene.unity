@@ -215,6 +215,7 @@ MonoBehaviour:
   speed: 100
   pfHealthBar: {fileID: 2063895056983626923, guid: 166e0057f3dc30241a22741219a9c45a,
     type: 3}
+  gc: {fileID: 2039147153}
 --- !u!1 &321347326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 3675447305638226741, guid: e83cf3319f3485e4691e9534152192c6, type: 3}
+  availableWeapons:
+  - {fileID: 11400000, guid: c1baeab7b6f04fb47b77c80b8c51b30d, type: 2}
   canvasBackground: {fileID: 1440796993}
   startButton: {fileID: 2082679332}
   restartButton: {fileID: 516349830}
