@@ -12,6 +12,11 @@ public class HealthSystem
 
     public HealthSystem(int healthMax)
     {
+        SetHealth(healthMax);
+    }
+
+    public void SetHealth(int healthMax)
+    {
         this.healthMax = healthMax;
         health = healthMax;
     }

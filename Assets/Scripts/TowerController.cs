@@ -56,5 +56,8 @@ public class TowerController : MonoBehaviour
         weaponSystem.CheckReload(Time.deltaTime);
     }
 
-
+    public void RestartPlayer()
+    {
+        healthSystem.SetHealth(100);
+    }
 }

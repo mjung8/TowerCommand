@@ -11,8 +11,10 @@ public class GameController : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     public List<ScriptableWeapon> availableWeapons;
-    public GameObject canvasBackground;
+    public GameObject mainMenu;
+    public GameObject gameOverMenu;
     public GameObject startButton;
+    public GameObject playAgainButton;
     public GameObject restartButton;
     public TextMeshProUGUI scoreTMP;
     public GameObject UIplayerInfo;
@@ -30,21 +32,31 @@ public class GameController : MonoBehaviour
         Vector3 targetWidth = Camera.main.ScreenToWorldPoint(upperCorner);
         maxWidth = targetWidth.x;
         UpdateText();
+
+        mainMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        UIplayerInfo.SetActive(false);
     }
 
     public void StartGame()
     {
-        canvasBackground.SetActive(false);
-        startButton.SetActive(false);
+        mainMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
         UIplayerInfo.SetActive(true);
         StartCoroutine(Enemy());
+    }
+
+    public void PlayAgain()
+    {
+        tc.RestartPlayer();
+        StartGame();
     }
 
     private void StopGame()
     {
         StopCoroutine(Enemy());
-        canvasBackground.SetActive(true);
-        restartButton.SetActive(true);
+        mainMenu.SetActive(false);
+        gameOverMenu.SetActive(true);
         UIplayerInfo.SetActive(false);
     }
 
@@ -62,6 +74,8 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
+        Debug.Log(tc.healthSystem.GetHealthPercent());
+
         while (tc.healthSystem.GetHealthPercent() > 0)
         {
             GameObject enemy = enemies[0];
@@ -71,6 +85,8 @@ public class GameController : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(0.25f, 1.25f));
         }
+
+        StopGame();
     }
 
     void UpdateText()
