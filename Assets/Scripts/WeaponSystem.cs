@@ -62,6 +62,7 @@ public class WeaponSystem
                 Reloading = false;
                 Magazine = currentWeapon.magazineCapacity;
                 OnReloadChange?.Invoke(Reloading);
+                OnMagazineChange?.Invoke(Magazine);
             }
         }
         
